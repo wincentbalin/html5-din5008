@@ -13,6 +13,10 @@
             outline: 1px lightgray solid
         }
 
+        div[contenteditable].multiline {
+            min-height: 4em
+        }
+
         @media print {
             .non-printable {
                 display: none
@@ -22,6 +26,6 @@
 </head>
 <body>
     <div id="body" contenteditable></div>
-    <div id="body1" contenteditable></div>
+    <div id="body1" class="multiline" contenteditable></div>
 </body>
 </html>
