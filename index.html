@@ -6,7 +6,11 @@
     <title>DIN 5008 Brief</title>
     <style>
         div[contenteditable] {
-            padding: 1em
+            padding: 0.5em
+        }
+
+        div[contenteditable]:not(:focus) {
+            outline: 1px lightgray solid
         }
 
         @media print {
@@ -17,6 +21,7 @@
     </style>
 </head>
 <body>
-    
+    <div id="body" contenteditable></div>
+    <div id="body1" contenteditable></div>
 </body>
 </html>
