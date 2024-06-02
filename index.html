@@ -17,6 +17,12 @@
             min-height: 4em
         }
 
+        label {
+            display: block;
+            margin-top: 2ex;
+            margin-bottom: 0.5ex
+        }
+
         @media print {
             .non-printable {
                 display: none
@@ -25,7 +31,9 @@
     </style>
 </head>
 <body>
+    <label for="body">Body</label>
     <div id="body" contenteditable></div>
+    <label for="body1">Body 1</label>
     <div id="body1" class="multiline" contenteditable></div>
 </body>
 </html>
