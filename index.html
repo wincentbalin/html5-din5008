@@ -17,6 +17,10 @@
             min-height: 4em
         }
 
+        div[contenteditable]#addressnote {
+            min-height: 2em
+        }
+
         label {
             display: block;
             font-family: system-ui, -apple-system, sans-serif;
@@ -35,6 +39,8 @@
 <body>
     <label for="backaddress">Rücksendeangabe</label>
     <div id="backaddress" contenteditable></div>
+    <label for="addressnote">Adresszusatz</label>
+    <div id="addressnote" class="multiline" contenteditable></div>
     <label for="address">Anschrift</label>
     <div id="address" class="multiline" contenteditable></div>
     <label for="additionalinformation">Informationsblock</label>
