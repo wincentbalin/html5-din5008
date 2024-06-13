@@ -67,8 +67,10 @@
             }
 
             #additionalinformation {
-                top: 32mm;
-                right: 10mm;
+                position: static;
+                display: inline-block;
+                margin-top: 32mm;
+                margin-left: 125mm;
                 min-height: 40mm;
                 max-width: 75mm
             }
@@ -86,6 +88,7 @@
     </style>
 </head>
 <body>
+    <div id="header">
     <label for="backaddress">Rücksendeangabe</label>
     <div id="backaddress" contenteditable></div>
     <label for="addressnote">Adresszusatz</label>
@@ -94,6 +97,7 @@
     <div id="address" class="multiline" contenteditable></div>
     <label for="additionalinformation">Informationsblock</label>
     <div id="additionalinformation" class="multiline" contenteditable></div>
+    </div>
     <label for="text">Text</label>
     <div id="text" class="multiline" contenteditable></div>
     <label for="footer">Fußzeile</label>
