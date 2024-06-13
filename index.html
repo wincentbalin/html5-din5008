@@ -29,6 +29,11 @@
             margin-bottom: 0.5ex
         }
 
+        #foldmark1, #punchmark, #foldmark2 {
+            position: absolute;
+            display: none
+        }
+
         @media print {
             @page {
                 page: A4 portrait;
@@ -84,6 +89,27 @@
             #footer {
                 bottom: 0
             }
+
+            #foldmark1, #punchmark, #foldmark2 {
+                display: block;
+                border-top: black 1px solid;
+                height: 1px
+            }
+
+            #foldmark1 {
+                top: 87mm;
+                width: 10mm
+            }
+
+            #punchmark {
+                top: 148.5mm;
+                width: 15mm
+            }
+
+            #foldmark2 {
+                top: 192mm;
+                width: 10mm
+            }
         }
     </style>
 </head>
@@ -102,5 +128,8 @@
     <div id="text" class="multiline" contenteditable></div>
     <label for="footer">Fußzeile</label>
     <div id="footer" class="multiline" contenteditable></div>
+    <div id="foldmark1"></div>
+    <div id="punchmark"></div>
+    <div id="foldmark2"></div>
 </body>
 </html>
