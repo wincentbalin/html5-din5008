@@ -30,6 +30,11 @@
         }
 
         @media print {
+            @page {
+                page: A4 portrait;
+                margin: 0
+            }
+
             .non-printable, label {
                 display: none
             }
