@@ -161,6 +161,22 @@
                    '?data=', encodeURIComponent(JSON.stringify(data))].join('');
         window.open(url, '_blank');
     });
+
+    if (document.location.search) {
+        document.location.search.substring(1).split('&').map(function(param) {
+            return param.split('=');
+        }).filter(function(kv) {
+            var key = kv[0];
+            return key === 'data';
+        }).forEach(function(kv) {
+            var data = JSON.parse(decodeURIComponent(kv[1]));
+            inputIds.filter(function(id) {
+                return id in data;
+            }).forEach(function(id) {
+                document.getElementById(id).innerText = data[id];
+            });
+        });
+    }
     </script>
 </body>
 </html>
