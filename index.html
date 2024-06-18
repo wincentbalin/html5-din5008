@@ -149,6 +149,18 @@
     document.querySelector('#print').addEventListener('click', function(event) {
         window.print();
     });
+
+    var inputIds = ['backaddress', 'addressnote', 'address', 'additionalinformation', 'text', 'footer'];
+
+    document.querySelector('#share').addEventListener('click', function(event) {
+        var data = inputIds.reduce(function(acc, id) {
+            acc[id] = document.getElementById(id).innerText;
+            return acc;
+        }, {});
+        var url = [document.location.origin, document.location.pathname,
+                   '?data=', encodeURIComponent(JSON.stringify(data))].join('');
+        window.open(url, '_blank');
+    });
     </script>
 </body>
 </html>
