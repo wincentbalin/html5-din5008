@@ -153,12 +153,12 @@
     var inputIds = ['backaddress', 'addressnote', 'address', 'additionalinformation', 'text', 'footer'];
 
     document.querySelector('#share').addEventListener('click', function(event) {
-        var data = inputIds.reduce(function(acc, id) {
-            acc[id] = document.getElementById(id).innerText;
-            return acc;
-        }, {});
+        var params = inputIds.map(function(id) {
+            var text = document.getElementById(id).innerText;
+            return [id, '=', encodeURIComponent(text)].join('');
+        }).join('&');
         var url = [document.location.origin, document.location.pathname,
-                   '?data=', encodeURIComponent(JSON.stringify(data))].join('');
+                   '?', params].join('');
         window.open(url, '_blank');
     });
 
@@ -166,15 +166,12 @@
         document.location.search.substring(1).split('&').map(function(param) {
             return param.split('=');
         }).filter(function(kv) {
-            var key = kv[0];
-            return key === 'data';
+            var id = kv[0];
+            return inputIds.indexOf(id) !== -1;
         }).forEach(function(kv) {
-            var data = JSON.parse(decodeURIComponent(kv[1]));
-            inputIds.filter(function(id) {
-                return id in data;
-            }).forEach(function(id) {
-                document.getElementById(id).innerText = data[id];
-            });
+            var id = kv[0];
+            var text = decodeURIComponent(kv[1]);
+            document.getElementById(id).innerText = text;
         });
     }
     </script>
