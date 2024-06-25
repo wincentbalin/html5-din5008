@@ -154,7 +154,10 @@
     var inputIds = ['backaddress', 'addressnote', 'address', 'additionalinformation', 'text', 'footer'];
 
     document.querySelector('#share').addEventListener('click', function(event) {
-        var params = inputIds.map(function(id) {
+        var params = inputIds.filter(function(id) {
+            var text = document.getElementById(id).innerText;
+            return text.trim() !== '';
+        }).map(function(id) {
             var text = document.getElementById(id).innerText;
             return [id, '=', encodeURIComponent(text)].join('');
         }).join('&');
